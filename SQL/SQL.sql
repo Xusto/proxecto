@@ -40,7 +40,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `agomubcz_proxecto`.`tenda` ;
 
 CREATE TABLE IF NOT EXISTS `agomubcz_proxecto`.`tenda` (
-  `idtenda` INT NOT NULL,
+  `idtenda` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `enderezo` VARCHAR(45) NULL,
   `codpostal` INT NULL,
@@ -56,7 +56,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `agomubcz_proxecto`.`producto` ;
 
 CREATE TABLE IF NOT EXISTS `agomubcz_proxecto`.`producto` (
-  `idproducto` INT NOT NULL,
+  `idproducto` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NULL,
   `descript` TEXT(100) NULL,
   `urlFoto` VARCHAR(45) NULL,
@@ -70,7 +70,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `agomubcz_proxecto`.`comentario` ;
 
 CREATE TABLE IF NOT EXISTS `agomubcz_proxecto`.`comentario` (
-  `idcomentario` INT NOT NULL,
+  `idcomentario` INT NOT NULL AUTO_INCREMENT,
   `usuario_idusuario` INT NOT NULL,
   `producto_idproducto` INT NOT NULL,
   `texto` TEXT NULL,
