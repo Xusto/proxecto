@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Xerado en: 16 de Mar de 2018 ás 00:34
+-- Xerado en: 16 de Mar de 2018 ás 09:14
 -- Versión do servidor: 10.2.13-MariaDB
 -- Versión do PHP: 7.2.2
 
@@ -34,6 +34,16 @@ CREATE TABLE `comentario` (
   `producto_idproducto` int(11) NOT NULL,
   `texto` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- A extraer os datos da táboa `comentario`
+--
+
+INSERT INTO `comentario` (`idcomentario`, `usuario_idusuario`, `producto_idproducto`, `texto`) VALUES
+(2, 1, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum sem sit amet dolor varius malesuada id sed mauris. Duis nec dolor est. Ut ultrices.'),
+(3, 3, 1, 'felis at suscipit tempor, purus diam eleifend mi, consequat ullamcorper mi lacus id orci. Curabitur sagittis aliquam l'),
+(4, 3, 1, 'Duis tempor, lectus at auctor consequat, felis est euismod nunc, eu facilisis est arcu a leo. Donec vulputate justo lacus, sit amet interdum nisi consequat eget. '),
+(5, 1, 9, 'Duis tempor, lectus at auctor consequat, felis est euismod nunc, eu facilisis est arcu a leo. Donec vulputate justo lacus, sit amet interdum nisi consequat eget. ');
 
 -- --------------------------------------------------------
 
@@ -117,6 +127,11 @@ INSERT INTO `tenda_producto` (`tenda_idtenda`, `producto_idproducto`, `prezo`) V
 (1, 9, 5),
 (1, 10, 1.3),
 (1, 11, 1.1),
+(1, 12, 1),
+(1, 13, 1),
+(1, 14, 1),
+(1, 15, 1),
+(1, 16, 1),
 (2, 2, 1.1),
 (2, 6, 2.1),
 (2, 8, 2.4),
@@ -132,6 +147,7 @@ INSERT INTO `tenda_producto` (`tenda_idtenda`, `producto_idproducto`, `prezo`) V
 (5, 4, 0.6),
 (5, 6, 2.1),
 (5, 7, 3.9),
+(5, 17, 5),
 (6, 1, 3.2),
 (6, 4, 0.6),
 (6, 6, 2.1),
@@ -150,6 +166,15 @@ CREATE TABLE `usuario` (
   `nome` varchar(45) NOT NULL,
   `apelidos` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- A extraer os datos da táboa `usuario`
+--
+
+INSERT INTO `usuario` (`idusuario`, `nick`, `contrasinal`, `nome`, `apelidos`) VALUES
+(1, 'usrproba', 'usrproba', 'usuario', 'proba'),
+(3, 'usr2', 'usr2', 'usuario2', 'segundo'),
+(4, 'usr3', 'usr3', 'usuario3', 'terceiro');
 
 --
 -- Indexes for dumped tables
@@ -198,13 +223,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `idcomentario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcomentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tenda`
@@ -216,7 +241,7 @@ ALTER TABLE `tenda`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricións para os envorcados das táboas
