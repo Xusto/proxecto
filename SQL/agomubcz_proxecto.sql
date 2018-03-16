@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Xerado en: 15 de Mar de 2018 ás 02:06
+-- Xerado en: 16 de Mar de 2018 ás 00:34
 -- Versión do servidor: 10.2.13-MariaDB
 -- Versión do PHP: 7.2.2
 
@@ -48,6 +48,23 @@ CREATE TABLE `producto` (
   `urlFoto` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- A extraer os datos da táboa `producto`
+--
+
+INSERT INTO `producto` (`idproducto`, `nome`, `descript`, `urlFoto`) VALUES
+(1, 'Soia texturizada fina', 'Venta a granel de soia texturizada por kg', ''),
+(2, 'Guaranito', 'Refresco feito a base de guaraná', ''),
+(3, 'Chocolate', '90% cacao, de producción ecolóxica e comercio xusto', ''),
+(4, 'Mazás a granel', 'Valor por kg', ''),
+(5, 'Arroz redondo semi integral', 'Arroz redondo con denominación de orixe', ''),
+(6, 'Cacao instant', 'Cacao ecolóxico de comercio xusto1', ''),
+(7, 'Stevia', 'Stevia molida de orixe galego', ''),
+(8, 'Soia texturizada grosa', 'Venta a granel de soia texturizada por kg', ''),
+(9, 'Caixa de froita e verdura de temporada', 'Caixa elaborada semanalmente coas froitas e verduras de cercanías', ''),
+(10, 'Leite ecolóxica', 'Leite galego de producción ecolóxica', ''),
+(11, 'Leite de avea', 'Bebida de avea de producción ecolóxica', '');
+
 -- --------------------------------------------------------
 
 --
@@ -86,6 +103,39 @@ CREATE TABLE `tenda_producto` (
   `producto_idproducto` int(11) NOT NULL,
   `prezo` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- A extraer os datos da táboa `tenda_producto`
+--
+
+INSERT INTO `tenda_producto` (`tenda_idtenda`, `producto_idproducto`, `prezo`) VALUES
+(1, 1, 2.4),
+(1, 2, 1),
+(1, 3, 3),
+(1, 6, 2.1),
+(1, 8, 2.4),
+(1, 9, 5),
+(1, 10, 1.3),
+(1, 11, 1.1),
+(2, 2, 1.1),
+(2, 6, 2.1),
+(2, 8, 2.4),
+(2, 9, 5),
+(2, 10, 1.3),
+(3, 6, 2.1),
+(3, 10, 1.3),
+(3, 11, 1.1),
+(4, 1, 3.2),
+(4, 4, 0.6),
+(4, 7, 3.9),
+(5, 1, 3.2),
+(5, 4, 0.6),
+(5, 6, 2.1),
+(5, 7, 3.9),
+(6, 1, 3.2),
+(6, 4, 0.6),
+(6, 6, 2.1),
+(6, 7, 3.9);
 
 -- --------------------------------------------------------
 
@@ -154,7 +204,7 @@ ALTER TABLE `comentario`
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tenda`
