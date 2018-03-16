@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 header('Content-type: text/xml');
 
 if( ! isset($_GET['idtenda']) ){
@@ -25,29 +25,27 @@ if( ! isset($_GET['prezo']) ){
 require("bd.php");
 
 
-$sql =  "SELECT usuario.id FROM usuario WHERE  usuario.usuario = '" .$_SESSION['usuario'] . "';";
-//echo $sql;
-
-$resultado = $bd->query($sql);
-
-$fila = $resultado->fetch_array();
-
-
 $sql  = "INSERT INTO producto (nome, descript, urlFoto) ";
 $sql .= "VALUES ('" . $_GET['nome'] . "', '" . $_GET['descript'] . "', '');";
 
-//echo $sql;
+// echo $sql;
 
 if($bd->query($sql)) {
 
     $sql = "SELECT last_insert_id() as id";
    
-//echo $sql;
+// echo $sql;
     $resultado = $bd->query($sql);
 	$fila = $resultado->fetch_array();
 	
 	$sql  = "INSERT INTO tenda_producto (tenda_idtenda, producto_idproducto, prezo) ";
     $sql .= "VALUES ('" . $_GET['idtenda'] . "', '" . $fila['id'] . "', '". $_GET['idtenda'] . "');";
+    
+    $bd->query($sql);
+    
+    echo "<exito/>";
 	
-} 
+} else {
+    echo "error";
+}
 ?>
